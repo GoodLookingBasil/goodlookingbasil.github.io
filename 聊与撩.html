@@ -1,0 +1,190 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-tomorrow-night-eighties .ace_gutter {background: #272727;color: #CCC}.ace-tomorrow-night-eighties .ace_print-margin {width: 1px;background: #272727}.ace-tomorrow-night-eighties {background-color: #2D2D2D;color: #CCCCCC}.ace-tomorrow-night-eighties .ace_constant.ace_other,.ace-tomorrow-night-eighties .ace_cursor {color: #CCCCCC}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selection {background: #515151}.ace-tomorrow-night-eighties.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #2D2D2D;}.ace-tomorrow-night-eighties .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #6A6A6A}.ace-tomorrow-night-bright .ace_stack {background: rgb(66, 90, 44)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_active-line {background: #393939}.ace-tomorrow-night-eighties .ace_gutter-active-line {background-color: #393939}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selected-word {border: 1px solid #515151}.ace-tomorrow-night-eighties .ace_invisible {color: #6A6A6A}.ace-tomorrow-night-eighties .ace_keyword,.ace-tomorrow-night-eighties .ace_meta,.ace-tomorrow-night-eighties .ace_storage,.ace-tomorrow-night-eighties .ace_storage.ace_type,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #CC99CC}.ace-tomorrow-night-eighties .ace_keyword.ace_operator {color: #66CCCC}.ace-tomorrow-night-eighties .ace_constant.ace_character,.ace-tomorrow-night-eighties .ace_constant.ace_language,.ace-tomorrow-night-eighties .ace_constant.ace_numeric,.ace-tomorrow-night-eighties .ace_keyword.ace_other.ace_unit,.ace-tomorrow-night-eighties .ace_support.ace_constant,.ace-tomorrow-night-eighties .ace_variable.ace_parameter {color: #F99157}.ace-tomorrow-night-eighties .ace_invalid {color: #CDCDCD;background-color: #F2777A}.ace-tomorrow-night-eighties .ace_invalid.ace_deprecated {color: #CDCDCD;background-color: #CC99CC}.ace-tomorrow-night-eighties .ace_fold {background-color: #6699CC;border-color: #CCCCCC}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_function,.ace-tomorrow-night-eighties .ace_support.ace_function,.ace-tomorrow-night-eighties .ace_variable {color: #6699CC}.ace-tomorrow-night-eighties .ace_support.ace_class,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #FFCC66}.ace-tomorrow-night-eighties .ace_heading,.ace-tomorrow-night-eighties .ace_markup.ace_heading,.ace-tomorrow-night-eighties .ace_string {color: #99CC99}.ace-tomorrow-night-eighties .ace_comment {color: #999999}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_tag,.ace-tomorrow-night-eighties .ace_entity.ace_other.ace_attribute-name,.ace-tomorrow-night-eighties .ace_meta.ace_tag,.ace-tomorrow-night-eighties .ace_variable {color: #F2777A}.ace-tomorrow-night-eighties .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ09NrYAgMjP4PAAtGAwchHMyAAAAAAElFTkSuQmCC) right repeat-y}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      
+      <div id="titlearea">
+        <h2>聊与撩</h2>
+      </div>
+      <div id="contentarea"><div class="cell markdown-cell"><h2>01 介绍</h2>
+<p>“大家好，我叫Andy，很高兴认识大家。我的个人标签就是：安静。因为除了工作，平常我一直是个安静的人，习惯性地待在自己的世界里。”</p>
+<p>我抬起头，这段自我介绍引起了我的注意。相比起别人的自我介绍，比如“喜欢打球”“我是吃货”“我来自某某公司”，她的自我介绍有些特别。因为她在一个强调团体的公司培训中，在一个热热闹闹的环境里，公然说出了“安静”两个字。</p>
+<p>用“安静”作为个人标签的人不是没有，但是在公开场合这么介绍自己的，很少。</p>
+<h2>02 观察</h2>
+<p>我认真地看了一下说话的人。女生。其实她就坐在我隔壁的隔壁，因为是圆形桌，所以是我的斜对面,但是我的位置只能看到她的侧脸，没给我留下太多印象。</p>
+<p>她站起来说话的时候，脸稍微转向了我这边，我得以看清她的正面。</p>
+<p>好看，漂亮，不，应该是美丽。</p>
+<p>我一直觉得，美女不等同于美丽的女人，前者不是后者的缩写。美女实在太多了，用美女形容一个女生，是最平庸的词汇。</p>
+<p>但是美丽的女人不同。我们常说的美女，往往只是长得好看，除此之外没有别的东西让你记住她。美丽的女人，除了相貌，她更是一个气质典雅，内心富足的女人。和这样的女人接触，你很容易感觉到她特别的味道。</p>
+<p>安静的Andy，在说完话后，依然安静地坐在椅子上，面色平和，略带微笑，听着别人的自我介绍。</p>
+<p>她哪里最好看呢？我说不出来。她肤色白皙，眉清目秀，神色清丽，气质出众。</p>
+<p>她的嘴角很好看。微笑的时候，虽然没说话，但似乎表达了很多。</p>
+<p>她穿着一件白色的衬衫，领口和袖口都经过特别的处理，显得很有层次感。</p>
+<p>不知道是不是心里作用，我觉得她一动一静一之间，散发出一股令人心旷神怡的香味。</p>
+<p>我突然想起两句诗：遥知不是雪，唯有暗香来。</p>
+<h2>03 队长</h2>
+<p>“要不我们选Andy当队长吧。”一个身材胖呼呼，声音嗲兮兮的男生提议。</p>
+<p>一般这种团体培训都是这样的：几个人围坐成一桌，自成一系。然后培训讲师会让这桌人起个队名，选个队长，之后在队长的带领下参加各种游戏，或者各种活动，以提高团队凝聚力，接受公司价值观。</p>
+<p>在选队长这个环节，往往美女最容易被注意。</p>
+<p>“啊～不不不，我不适合当队长”。Andy急忙推脱。</p>
+<p>“我觉得要么尚敏，要么俊宇，要么就是Andy吧”。一个大胡子说。</p>
+<p>“好啊，可以。”其他几个人附和着。</p>
+<p>“我不行的，还是别选我吧。”Andy笑得有些不好意思，看得出来真的不想。</p>
+<p>我没有犹豫。</p>
+<p>“这样吧，Andy同学就不当队长好了，因为她刚才自我介绍时说了，她是个安静的人，队长这种活儿，不太适合。队长就选俊宇吧，他是本地人，如果有户外游戏，方便些。”我出手相救，顺便直接解决问题。</p>
+<p>还没等我话说完，Andy就一直在点头，并且向我投来感激的目光。</p>
+<p>她的眼神，让我感觉自己是个路见不平的好汉，颇有英雄救美的错觉。</p>
+<p>不确定是不是错觉，我觉得她的眼睛在发亮，里面包含的不只是感激。</p>
+<h2>04 试戏</h2>
+<p>小会议室里，队长俊宇正在和队里几个同学商量下午要表演的短剧剧本，Andy两只手放在身后，靠着墙站立，笑着看几个戏精在说戏。</p>
+<p>我发现她站得很笔挺。一身黑色的连衣裙，配合黑色的稍微有根的皮鞋，让她看起来更加的出类拔萃。不知道为什么，我总是觉得她不属于这里。</p>
+<p>“我想把角色互换一下。”Andy说。“换我做面试官，我面试他，然后当他回答没有女朋友时，我说他被录取了。”</p>
+<p>“哦？是么？”俊宇问。</p>
+<p>“对，这样可以么？我想换一下，因为平常大家惯性的接受了这样的设定，觉得男面试官会招没有男朋友的女生，但我觉得如果调换一下，会特别点。”</p>
+<p>说完这句话，Andy看向我，笑着说：“我自己不想成为这样的形象假设。”</p>
+<p>我也笑了，点点头，迎着她的目光：“我知道，我理解。”</p>
+<p>我心里不禁笑队长，如果我来设计剧情，我是绝对不会把Andy设计成一个凭借美貌通过面试的人的。</p>
+<p>事情有时候就是这么奇怪。你可以很了解一个人，但你未必理解他；而有的人你并不了解，却可以理解。</p>
+<p>我们团队的剧情，最后确定了下来。大家在试戏的过程中，都展现了各自活泼的一面，嘻嘻哈哈，玩得很开心，包括Andy。</p>
+<p>在后来的一些游戏上，她也很投入。</p>
+<p>我觉得，她不像那种彻底安静的人。</p>
+<h2>05 对话</h2>
+<p>“你知道吗？当你提议说别选我当队长时，我超感谢的！！”</p>
+<p>我笑着看着Andy，没说话。</p>
+<p>“因为我觉得有人在听我说话，有人为我说话。”我不知道是不是她的眼睛会传情。她看着我说这些话的时候，让我特别愿意相信她。</p>
+<p>“你说的每句话我都有认真听，尤其你说到安静的时候。”我尽量让自己的神情举止看起来很轻松。“我也曾经一度觉得自己是个安静的人，所以我能理解”。</p>
+<p>“是么？可是你看起来很开朗，很外向啊，说话也很风趣。”她说这话的时候，顺便把自己盘起来的头发放了下来，随手往后拨了拨，让头发自然垂下。乌黑的头发搭配雪白的脖颈，让她的脖子看上去更加白嫩光泽。</p>
+<p>那一瞬间，我居然看呆了过去。更神奇的是，我闻到了一股淡淡的香味。</p>
+<p>网络上有很多人说，女人最性感的小动作是咬自己的下嘴唇。我不以为然。肚子疼的时候也可以咬嘴唇啊！</p>
+<p>在我看来，女人最性感的动作，是拨弄自己的头发，比如把盘好的头发放下去，或者相反地扎起来，又或者把玩着自己的发梢，在手指上绕来绕去。</p>
+<p>而且美女v 的小动作，往往越是不经意，越让你对她有意。</p>
+<p>如果还有人坚持咬嘴唇才是最性感的，我觉得是因为他们没看过Andy放头发。</p>
+<p>似乎看出我有些异样，她笑了一下，举起手在我眼前晃了晃。“你以前真的是个安静的人么？”</p>
+<p>“啊～”，我回过神来，“至少我不是一个在一群人当中爱说话的人。”</p>
+<p>她两只手托在桌子上，身体略微前倾，表示对我的话很感兴趣。</p>
+<p>“我有很长一段时间，不喜欢参加陌生人的集体活动，例如聚餐。但是这几年开始习惯了，也不排斥了。不够我骨子里还是个安静的人，尽管我和熟人喜欢开玩笑。”这是真的。我心中最好的放松度假的方式，是拿两本书，坐在泳池旁边，消耗一个下午。</p>
+<p>“不过我觉得我自己这么安静不好。”</p>
+<p>“可是我觉得你不像你自己说的那么安静啊。无论是演短剧，还是我们玩游戏，我觉得你蛮投入的，让我有些吃惊。”</p>
+<p>“我想出力呀，而且也不想让自己看起来太娇气”。Andy微微一笑，仿佛梅花一般绽放得格外美丽。</p>
+<p>“你一点儿也不娇气。如果你娇气，就不会要求演面试官了。”</p>
+<p>“对！我觉得你特别能理解我！”这次笑得比较开，所以梅花也绽放得更热烈些。</p>
+<p>“你刚才说安静不好。其实我觉得，我们说的这种安静，是我们有着属于自己的一个独立世界，我们在这个世界里思考、反省、展望。这没什么不好的。但是我们人毕竟生活在这个社会上，就难免要和人打交道，要和外界发生联系。这并不矛盾。”</p>
+<p>“是么？你确定不是在安慰我？”我发现她笑起来，露出来的牙齿也很白。“其实我不是完全不喜欢和人打交道，我自己有很多的想法，无论好的坏的，喜悦悲伤的，都是我的，消化、感恩都还来不及，所以不太喜欢在人面前表现出来。”</p>
+<p>“所以我说，这种安静，和那些彻底安静的人，是不一样的。那类安静的人，我觉得更多的是没想法或者不自信，他们经过你身边也就经过了，不会留下什么。而你给我的感觉，就像是淡雅如风，香气扑鼻，总能留下什么”。我说的是真的，美丽的女人，能刺激你的不只是你的荷尔蒙。</p>
+<p>“哈哈哈，有你说的这么好么？”Andy笑得越来越开心，“我希望自己能越来越勇敢，不要太在意别人怎么看，要不然会很累”。</p>
+<p>“我也想这样。虽然我们活在这个世界上，难免还是会注意别人的看法，但是我们可以朝这个大方向走下去。”我发现我今天特别会煲鸡汤。“就像今天你在短剧里说的，你的人生首先是自己的人生，我们只需要坚强地走下去就好。何况，别人提意见也不完全是坏事。”</p>
+<p>“哈哈哈哈～你真很会说话！”现在是冬天，可是Andy的眼神，让我有种从心到胃的温暖。矫情点说像火把，但我觉得更像热水袋。火把你只能举在手里，热水袋你愿意贴在身上。</p>
+<p>“说真的，我觉得你好厉害。”终于等到Andy夸我了。“我觉得你人很聪明，又很幽默，还很有才华，说是个技术男，但却一点儿也不闷，而且还有一些文艺”。</p>
+<p>“关键是，我有着这个年龄多数人所没有的少年心气和小鲜肉般的外表”。我忍不住自吹了一下，但考虑到在美丽的女人面前要收敛，“当然了，还有这个年龄多数人所没有的厚脸皮。”</p>
+<p>我们同时笑出声来，顺手各自拿起杯子碰了一下。明明是白开水，我却喝出了橙汁的清甜。</p>
+<h2>06 借书</h2>
+<p>我们的培训会持续一周半，所以接连几天我都会和Andy在早上9点进入培训室。我们都会跟对方道一声早安，然后放下东西，再去茶水间倒一杯水。</p>
+<p>培训的过程，大多数时间是欢乐的，我也看到了她更多的笑容。但也难免遇见极其无趣的讲师，这个时候我就看看Andy，企图借用她的美貌来给我提神。</p>
+<p>尼采说：当你凝视深渊的时候，深渊也正凝视着你。这句话改一改，还是很好用的。因为我发现每次看向她的时候，她也会看向我。</p>
+<p>总感觉Andy的眼神就像深邃的海洋，我总是不自觉地潜入海中，流连忘返。我一向来自觉自己也算阅人无数，水性极强，可是对于Andy，我时刻提醒自己要小心，最好带个救生圈。</p>
+<p>我留意到一件事，她从来没有问过我是否有女朋友。我也没问过她是否单身。</p>
+<p>我不问她的原因很简单，我觉得没必要知道。但是她不问我的原因，我不清楚。难道我遇上了一个女老司机？</p>
+<p>“上次你说的那本书，一直在我的书单里，可是我还没有来得及看呢。”终于熬到了午休时间，我对Andy说。</p>
+<p>Andy最令我欣赏的一点，是她喜欢看书，并且她不是只看不思考。我想，这就很容易解释为什么她很有气质。再加上她家境很好，所以造就了她温润如玉的气度。</p>
+<p>她和我平常喜欢的美女不一样。因为她们只是美女。</p>
+<p>“你平常都看些什么书？”她问我。</p>
+<p>“我除了专业领域的书外，什么都看。”我回答道。</p>
+<p>“哈哈哈～那你具体都不务正业哪些领域呢？”她开心地问。</p>
+<p>“我喜欢看讲述各国文化的书，还有就是历史书，另外，我也看推理小说，小时侯看福尔摩斯、波洛，现在看东野圭吾。”</p>
+<p>“我也喜欢看东野。”</p>
+<p>“哦？难得啊。你印象最深是哪几本？”</p>
+<p>“嗯...我想想，《白夜行》《解忧杂货店》吧”。</p>
+<p>“这两本都是东野的代表作。除了这两本，我还特别喜欢他写的《谁杀了她》。开放式的结局，作者留下了一些线索，给读者自己去寻找答案。”</p>
+<p>“是么？那挺有意思的，我还没看过呢。”</p>
+<p>“我明天带来借你。你赶紧看，看完跟我讨论谁是凶手。”</p>
+<p>“嗯！好的！”她说完，用一只胳膊撑起脑袋，看着我说，“我记得你第一天介绍自己时，说你的标签是随意。”</p>
+<p>“对啊。我随便说的，这么说来我真是很随意的人。”</p>
+<p>我不知道我这算不算冷笑话，但Andy被逗笑了。</p>
+<p>“我觉得你不是那种随意，就像你说我不是那种安静一样。”她的眼神既柔和，又认真。“你看起来不羁，但是你内心又有自己坚守的东西。我说不出来，但是感觉就是这样。”</p>
+<p>这次换我认真地看着她。我没想过有人能用一句这么简洁的话直击我的内心。我感觉似乎她比我还理解我。</p>
+<p>“而且我觉得你心很细，尽管你看起来有点不拘小节。”韩国有部无聊电影叫《男人使用手册》，我觉得Andy现在就仿佛在看我的使用手册一般。</p>
+<p>“我心细？”我居然有这种优点，我自己都没察觉。</p>
+<p>“对啊。你记不记得第一天下午讲师上课的时候，为了看清投影，你挪了一下位置，坐到了我斜前方，然后你转头问我：会不会挡着你？我当时就觉得你这个人蛮好的，也很懂得为人着想。”</p>
+<p>“是么？没准儿只是因为看你好看，没话找话而已。”</p>
+<p>“哈哈哈～你的意思是，如果换成是队长，你就不管会不会挡着他了？”</p>
+<p>“不，如果是队长，我根本懒得凑过去。”</p>
+<p>“哈哈哈～所以，你是外貌协会的资深会员。”</p>
+<p>“什么叫会员，外貌协会就是我创办的。没办法，这主要是受到了你这样的女神的魔力召唤。”</p>
+<p>“...你夸张了。”</p>
+<p>“没事儿，你经夸。”</p>
+<p>“哈哈哈哈，意思是说我脸皮厚么？”</p>
+<p>“这就好像我对科比说‘你篮球打得真棒！’，那他本来就打得好啊，所以不会沾沾自喜，这就叫经夸。”</p>
+<p>“......您都把科比拉出来了，我还能说什么呢？哈哈哈哈哈～”。</p>
+<p>古人形容女子声音曼妙动听，会说“黄莺出谷”，我以前一直领会不到，现在我知道了。</p>
+<p>Andy开心地笑着的时候，同学们陆续进入培训室。她一边笑一边拍了一下我，说：“上课啦！下午是你演讲，加油！”。</p>
+<p>莞尔一笑，嫣然无方。</p>
+<p>我觉得这句话形容此时此刻的Andy，准确无误。</p>
+<h2>07 散步</h2>
+<p>晚上在餐厅吃过饭，我们一个队的同学一起下楼去散步，顺便庆祝今天下午我们的出色表现。</p>
+<p>更准确地说，庆贺我的出色表现。</p>
+<p>“你今天的演讲棒棒哒！！太厉害了，hold住全场，给我们队争光！”即便是晚上，Andy的眼睛依然放着光芒，我看到了我熟悉的那种异性对我欣赏的眼神。</p>
+<p>“还好，你们别觉得我夸夸其谈就行”。我虽然高兴，但很淡定。我特别擅长登台演讲，这个我在读小学的时候就知道了。</p>
+<p>“不不不，讲得太好了！而且你很多都是脱稿演讲哦！反应快，很多资料信手拈来，真是有才！”</p>
+<p>“哈哈哈，过奖了。”</p>
+<p>“我们组打了个漂亮的翻身仗，全靠你呀！”。</p>
+<p>不知不觉，我和Andy走在了后面。</p>
+<p>“思维严谨，还能引经据典，又总能以略带戏虐又文学的方式做总结”。Andy看起来比我还开心，“天啊，你确定你真的是做技术的？”</p>
+<p>“你比我还会夸人”。</p>
+<p>我喜欢和Andy并肩走路。往常如果我和喜欢的女生走在一起，当我又确定对方对我有好感的时候，我们总会有意无意地触碰一下，找找感觉。</p>
+<p>可是和Andy走在一起，我非但没想过制造接触，我还特别小心，生怕碰到她。</p>
+<p>我不知道这是为什么。我只知道，我特别享受和她相处，看她的眼睛，听她的声音。我想与她有更多的心灵交流。虽然我一直坚信任何的肉体碰撞都要从精神碰撞开始，但是我对她，完全没有除精神交流之外的想法。就好像眼前是一块秀色可餐的蛋糕，舍不得一口吃下，想一直欣赏着它的美。</p>
+<p>我觉得Andy就像一个读不完的故事，我一点儿也不着急跳到故事的最后，我只想不断地读这个故事。</p>
+<p>我也发现了她有小女生的一面，尽管她大多时候举止从容，行事优雅。</p>
+<p>她走路的时候，开心起来，会不自觉地把手甩高，就像一群小学生放学回家，边走边乐一样。</p>
+<p>大家绕着楼下广场走了两圈。我完全不知道别人在聊什么，我只觉得Andy和我聊了很多，她很放松。此时的她，既不安静，也不吵闹，恰如其分的舒服。</p>
+<p>不知道什么时候，只剩我们俩一圈又一圈地走着。我想起《倚天屠龙记》里，张无忌骑马抱着赵敏，希望路永远走不完的感觉。</p>
+<p>张无忌比我运气好，因为他可以抱着赵敏；但我又比张无忌运气好，因为赵敏是昏厥的，而Andy是清醒的，她一直在和我说话。</p>
+<p>“你知道么？我跳槽来到这里工作，其实是一个很大的转行，因为我以前做的完全不是这个。”</p>
+<p>“我知道，你第一天说过。”</p>
+<p>“我现在还很蒙呢，不知道接下来咋办。”</p>
+<p>“简单。心态放平和，把自己能做的做了，能学的学了。即便你在这里短时间不适应，但长远来看，没有无用功，所做的都不会白费。”</p>
+<p>“但感觉好难哦。”</p>
+<p>“我问你，你觉得现在，比起当时你一个人出国，在国外自己照顾自己，适应完全陌生的环境，还要打工挣钱，哪个难？”</p>
+<p>“当时难一点，不过不一样吧。”</p>
+<p>“生活才是最大的修炼。你是生活的强者，还怕工作么？”</p>
+<p>Andy很认真地看着我。“你总是这么会说话么？”</p>
+<p>“你觉得有用么？”</p>
+<p>“有～”。</p>
+<p>我们继续往前走，中间时不时穿插各种各样的话题。今晚似乎不是很冷，偶尔有一阵风吹过，我能闻到她身上淡淡的清香。</p>
+<p>我们谈到自己的过去，自己的父母，自己的兄弟姐妹，自己的校园时光。有趣的是，我们都避不谈各自的恋爱史，也不过问对方的。</p>
+<p>不知道走了多久，我只觉得广场上的人越来越少。</p>
+<p>“从熙熙攘攘，走到空无一人。”Andy突然说了一句，看了看表。</p>
+<p>“不好意思，我没留意到时间，已经很晚了。回去吧，明天最后一天，不能迟到。”</p>
+<p>“嗯嗯～尤其是你，要注意别迟到。”Andy两只手插在大衣口袋里，笑着看着我。</p>
+<p>“对了，我一直没问你，你住得离这远么？”</p>
+<p>Andy似乎略微有些吃惊，“啊～还好。开车大概25分钟。”</p>
+<p>“那也不近了。女孩子晚上要注意安全。25分钟，你住哪儿啊？”</p>
+<p>“我么？”不知道为什么，Andy的眼神突然闪烁了一下，即便是深夜，我也能清楚地看到她那转瞬即逝的尴尬和不好意思。</p>
+<p>“我住在我公公婆婆家里，和我先生”。</p>
+<p>--完</p>
+</div></div>
+      <script></script>
+    </body>
+    </html>
+  
